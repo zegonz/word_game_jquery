@@ -1,2 +1,2 @@
-word_game_jquery
+Jeu avec jquery
 ================
