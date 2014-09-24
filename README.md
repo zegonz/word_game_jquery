@@ -1,2 +1,2 @@
-Jeu avec jquery
+Jeu de lettre avec jquery
 ================
