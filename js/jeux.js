@@ -5,16 +5,18 @@ $(document).ready(function() {
         $('.score').show();
         generateLetters();
 
-        var seconde = 500;
+        var seconde = 30;
         function timer(){
             setTimeout(timer, 1000);
             $('.countdown').html(seconde);
             seconde--;
             if (seconde<0) {
                 seconde = 0;
-                $('.countdown').html('cest finit');
-                var url = "http://www.google.fr";
-                $(location).attr('href', url);
+                $('.countdown').html('cest finit !!!!!!');
+                
+
+                // var url = "http://www.google.fr";
+                // $(location).attr('href', url);
             }
         }
         timer();
@@ -22,6 +24,9 @@ $(document).ready(function() {
 
     $(document).keypress(function(event) {
         var keycode = String.fromCharCode(event.which);
+        if ($('.letter'+keycode)) {
+            $('#son1')[0].play();
+        }
         $('.letter'+keycode).animate({ "top" : "20px", "opacity" : 0 }, "fast");
         $('.letter'+keycode).fadeOut('slow').hide('slow', function() {
             score +=5;
@@ -44,7 +49,6 @@ $(document).ready(function() {
 
         var top = Math.floor(Math.random() * 400);
         var left = Math.floor(Math.random() * 700);
-
         $('.main').append(
             '<div class="letter letter' + randomstring +'" style="left:' + left +'px;' + ' top:' + top + 'px;' + ' background-color:#' + color +';">' + randomstring + '</div>'
         );
@@ -63,5 +67,4 @@ $(document).ready(function() {
         return color;
 
     }
-
 });
